@@ -22,8 +22,8 @@ import pickle
 import copy
 import csv
 
-from dataset import *
-from model import *
+from pmm_dataset import *
+from pmm_model import *
 from trainer import *
 
 
@@ -46,7 +46,7 @@ def main():
     freeze_output_layer_biases = True # True
     
     # create dataset
-    data_fname = "dir_data/data_minus_2.csv" 
+    data_fname = "dir_data/data_pmm_1.csv"
     dataset = Dataset(data_fname=data_fname)
     
     # create model
@@ -54,7 +54,7 @@ def main():
     in1_size = len(dataset.digit_names_to_inds)
     in2_size = len(dataset.digit_names_to_inds)
     hidden_size = 30 # 15
-    output_size = len(dataset.out_names_to_inds)
+    output_size = 2 * len(dataset.out_names_to_inds)
     
     model = Model(in1_size=in1_size,
                   in2_size=in2_size,

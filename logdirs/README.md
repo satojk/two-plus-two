@@ -23,10 +23,10 @@ How to read a logdir (I think):
 
 
 
-logdir_000 contains the run for the addition module, from dataset 
+logdir_000 contains the run for the addition module, from dataset
 data_add_1.csv.
 
-3.6.7 (default, Oct 22 2018, 11:32:17) 
+3.6.7 (default, Oct 22 2018, 11:32:17)
 [GCC 8.2.0]
 PyTorch version = 1.0.0
 Results will be saved in: logdirs/logdir_000
@@ -65,10 +65,10 @@ Run 0: Loss at epoch 0: 86.7534; Accuracy: 0.9167;
 Last epoch: 2999; Loss on last epoch: 0.1596 Accuracy on last epoch: 1.0000
 
 
-logdir_001 contains the run for the addition module, from dataset 
+logdir_001 contains the run for the addition module, from dataset
 data_add_2.csv.
 
-3.6.7 (default, Oct 22 2018, 11:32:17) 
+3.6.7 (default, Oct 22 2018, 11:32:17)
 [GCC 8.2.0]
 PyTorch version = 1.0.0
 Results will be saved in: logdirs/logdir_001
@@ -106,10 +106,10 @@ Run 0: Loss at epoch 0: 133.4489; Accuracy: 0.9217;
 Last epoch: 2999; Loss on last epoch: 0.1754 Accuracy on last epoch: 1.0000<Paste>
 
 
-logdir_002 contains the run for the subtraction module, from dataset 
+logdir_002 contains the run for the subtraction module, from dataset
 data_minus_2.csv.
 
-3.6.7 (default, Oct 22 2018, 11:32:17) 
+3.6.7 (default, Oct 22 2018, 11:32:17)
 [GCC 8.2.0]
 PyTorch version = 1.0.0
 Results will be saved in: logdirs/logdir_002
@@ -145,3 +145,148 @@ Epoch 2800 training loss = 1.1749
 Epoch 2900 training loss = 1.1644
 Run 0: Loss at epoch 0: 132.9100; Accuracy: 0.9217;
 Last epoch: 2999; Loss on last epoch: 1.1552 Accuracy on last epoch: 0.9995
+
+
+logdir_003 contains the run for the PMM, from dataset
+data_pmm_1.csv.
+This was a bad run that did not give interpretable results, and had a very
+stressful training pattern.
+
+3.6.7 (default, Oct 22 2018, 11:32:17)
+[GCC 8.2.0]
+PyTorch version = 1.0.0
+Results will be saved in: logdirs/logdir_003
+Epoch 0 training loss = 291.3614
+Epoch 100 training loss = 106.8820
+Epoch 200 training loss = 103.9980
+Epoch 300 training loss = 101.9638
+Epoch 400 training loss = 99.7459
+Epoch 500 training loss = 98.1492
+Epoch 600 training loss = 94.2505
+Epoch 700 training loss = 70.3111
+Epoch 800 training loss = 61.1546
+Epoch 900 training loss = 56.1209
+Epoch 1000 training loss = 53.4463
+Epoch 1100 training loss = 52.5465
+Epoch 1200 training loss = 49.9589
+Epoch 1300 training loss = 48.6218
+Epoch 1400 training loss = 46.9389
+Epoch 1500 training loss = 52.1252
+Epoch 1600 training loss = 54.4230
+Epoch 1700 training loss = 49.3932
+Epoch 1800 training loss = 49.4822
+Epoch 1900 training loss = 48.6087
+Epoch 2000 training loss = 49.4244
+Epoch 2100 training loss = 44.5024
+Epoch 2200 training loss = 44.9012
+Epoch 2300 training loss = 9.3546
+Epoch 2400 training loss = 7.9417
+Epoch 2500 training loss = 7.3819
+Epoch 2600 training loss = 7.0677
+Epoch 2700 training loss = 6.8557
+Epoch 2800 training loss = 6.7013
+Epoch 2900 training loss = 6.5757
+Run 0: Loss at epoch 0: 291.3614; Accuracy: 0.9174;
+Last epoch: 2999; Loss on last epoch: 6.1456 Accuracy on last epoch: 0.9988
+
+real	44m29.146s
+user	8m40.210s
+sys	8m43.440s
+
+
+
+
+logdir_004 contains the run for the PMM, from dataset
+data_pmm_1.csv, with A1R biase frozen at -2
+Training went much more smoothly and results are interpretable as per the PMM
+algorithm for addition.
+
+3.6.7 (default, Oct 22 2018, 11:32:17)
+[GCC 8.2.0]
+PyTorch version = 1.0.0
+Results will be saved in: logdirs/logdir_004
+Epoch 0 training loss = 289.9937
+Epoch 100 training loss = 30.5152
+Epoch 200 training loss = 8.4260
+Epoch 300 training loss = 4.6104
+Epoch 400 training loss = 2.8977
+Epoch 500 training loss = 2.1604
+Epoch 600 training loss = 1.7268
+Epoch 700 training loss = 1.4373
+Epoch 800 training loss = 1.2158
+Epoch 900 training loss = 1.0630
+Epoch 1000 training loss = 0.9443
+Epoch 1100 training loss = 0.8494
+Epoch 1200 training loss = 0.7718
+Epoch 1300 training loss = 0.7072
+Epoch 1400 training loss = 0.6526
+Epoch 1500 training loss = 0.6058
+Epoch 1600 training loss = 0.5652
+Epoch 1700 training loss = 0.5298
+Epoch 1800 training loss = 0.4985
+Epoch 1900 training loss = 0.4707
+Epoch 2000 training loss = 0.4459
+Epoch 2100 training loss = 0.4235
+Epoch 2200 training loss = 0.4033
+Epoch 2300 training loss = 0.3849
+Epoch 2400 training loss = 0.3681
+Epoch 2500 training loss = 0.3527
+Epoch 2600 training loss = 0.3385
+Epoch 2700 training loss = 0.3255
+Epoch 2800 training loss = 0.3134
+Epoch 2900 training loss = 0.3021
+Run 0: Loss at epoch 0: 289.9937; Accuracy: 0.9167; Last epoch: 2999; Loss on last epoch: 0.2918 Accuracy on last epoch: 1.0000
+
+real	45m34.817s
+user	8m21.701s
+sys	8m22.738s
+
+
+logdir_005 contains the run for the pmm module, from dataset
+data_pmm_1.csv, with A1R biases frozen at -2
+Same as logdir_004, except that this came about after making some minor code
+changes which I thought would change things a bit. To be explicit: I think
+before these changes, we were recording some data onto the wrong layers for
+visualization purposes. I don't think any of that mattered in the end because
+I'm not using all that data (e.g. activations throughout training), but if I do
+end up using that data, look in logdir_005 rather than 004, as the code is
+probably correct on 005 and incorrect in 004. I visually checked the weights
+learned for A1R and they seem pretty similar between 004 and 005.
+
+3.6.7 (default, Oct 22 2018, 11:32:17)
+[GCC 8.2.0]
+PyTorch version = 1.0.0
+Results will be saved in: logdirs/logdir_005
+Epoch 0 training loss = 291.0446
+Epoch 100 training loss = 47.3961
+Epoch 200 training loss = 9.1344
+Epoch 300 training loss = 5.1155
+Epoch 400 training loss = 3.0950
+Epoch 500 training loss = 2.2442
+Epoch 600 training loss = 1.7748
+Epoch 700 training loss = 1.4698
+Epoch 800 training loss = 1.2543
+Epoch 900 training loss = 1.0792
+Epoch 1000 training loss = 0.9567
+Epoch 1100 training loss = 0.8592
+Epoch 1200 training loss = 0.7798
+Epoch 1300 training loss = 0.7138
+Epoch 1400 training loss = 0.6581
+Epoch 1500 training loss = 0.6105
+Epoch 1600 training loss = 0.5693
+Epoch 1700 training loss = 0.5333
+Epoch 1800 training loss = 0.5015
+Epoch 1900 training loss = 0.4731
+Epoch 2000 training loss = 0.4346
+Epoch 2100 training loss = 0.4118
+Epoch 2200 training loss = 0.3918
+Epoch 2300 training loss = 0.3737
+Epoch 2400 training loss = 0.3571
+Epoch 2500 training loss = 0.3420
+Epoch 2600 training loss = 0.3281
+Epoch 2700 training loss = 0.3153
+Epoch 2800 training loss = 0.3034
+Epoch 2900 training loss = 0.2924
+
+Run 0: Loss at epoch 0: 291.0446; Accuracy: 0.9167;
+Last epoch: 2999; Loss on last epoch: 0.2823 Accuracy on last epoch: 1.0000

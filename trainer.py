@@ -230,8 +230,13 @@ class Trainer(object):
             self.model.gact.reverse()
 
             # update info dict
+            jx = -1
             for j in range(len(self.model.linear_layers)):
                 layer_name = self.model.layer_names[j]
+                if layer_name in self.model.trainable_layer_names:
+                    jx += 1
+                else:
+                    continue
                 
                 def update(k, new_v, expand=False):
                     new_v = copy.deepcopy(to_np(new_v))
@@ -244,10 +249,15 @@ class Trainer(object):
                                 (info[layer_name][k], new_v))
                 
                 update("input_", self.model.layer_inputs[j])
-                update("net", self.model.layer_outputs[j])
-                update("act", self.model.layer_activations[j])
-                update("gweights", self.model.linear_layers[j].weight.grad,
-                        expand=True)
+                update("net", self.model.layer_outputs[jx])
+                update("act", self.model.layer_activations[jx])
+                if not self.model.linear_layers[j].weight.requires_grad:
+                    update("gweights",
+                           torch.zeros(
+                               self.model.linear_layers[j].weight.data.shape))
+                else:
+                    update("gweights", self.model.linear_layers[j].weight.grad,
+                            expand=True)
                 if not self.model.linear_layers[j].bias.requires_grad:
                     update("gbiases",
                            torch.zeros(
@@ -255,8 +265,8 @@ class Trainer(object):
                 else:
                     update("gbiases", self.model.linear_layers[j].bias.grad,
                            expand=True)
-                update("gnet", self.model.gnet[j])
-                update("gact", self.model.gact[j])
+                update("gnet", self.model.gnet[jx])
+                update("gact", self.model.gact[jx])
                     
         for layer_name in self.model.layer_names:
             info[layer_name]["sgweights"] = np.sum(
