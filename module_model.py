@@ -50,6 +50,10 @@ class Model(nn.Module):
                                    final_nonlinearity)] 
         self.layer_names = ["hidden_layer",
                             "output_layer"]
+
+        self.trainable_layer_names = ["hidden_layer",
+                                      "output_layer"]
+
     
         # initialize weights
         for layer, layer_name in zip(self.linear_layers, self.layer_names):
